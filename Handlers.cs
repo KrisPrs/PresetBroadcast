@@ -10,12 +10,12 @@ using UnityEngine;
 using Interactables.Interobjects.DoorUtils;
 using CommandSystem;
 
-namespace PluginPreset
+namespace BroadcastPreset
 {
     public class Handlers
     {
-        PluginPreset PluginInstance;
-        public Handlers(PluginPreset Plug)
+        readonly BroadcastPreset PluginInstance;
+        public Handlers(BroadcastPreset Plug)
         {
             PluginInstance = Plug;
         }

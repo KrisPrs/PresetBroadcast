@@ -7,9 +7,9 @@ using Exiled.API.Enums;
 using Exiled.API.Features;
 using Exiled.Events.Handlers;
 
-namespace PluginPreset
+namespace BroadcastPreset
 {
-    public class PluginPreset : Plugin<Config>
+    public class BroadcastPreset : Plugin<Config>
     {
         public override string Author { get; } = "Chris \"Irvis\" Praison";
         public override string Name { get; } = "BroadcastPreset";
