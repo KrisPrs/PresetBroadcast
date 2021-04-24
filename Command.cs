@@ -11,8 +11,8 @@ namespace BroadcastPreset
     class BroadcastCommand : ICommand
     {
         readonly BroadcastCommand CommandInst = new BroadcastCommand();
-        readonly BroadcastPreset PluginInstance;
-        BroadcastCommand ()
+        readonly BroadcastPreset PluginInstance = new BroadcastPreset();
+        public BroadcastCommand ()
         {
             LoadGeneratedCommands();
         }
