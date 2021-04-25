@@ -15,9 +15,7 @@ namespace BroadcastPreset
         [Description("Presets list. Format: preset key: text. Acceptable fields: {sender}. IMPORTANT: only lower register in preset key")]
         public Dictionary<string, string> Presets { get; set; } = new Dictionary<string, string>()
         {
-            {"restart", "<color=red><b>Внимание</b></color>\n<color=yellow>{sender} запросил перезапуск сервера в конце раунда. Перезайдите, если вас кикнет</color>" }, 
-            {"test", "test message" },
-            {"myname", "{sender}" }
+            {"restart", "<color=red><b>Внимание</b></color>\n<color=yellow>{sender} запросил перезапуск сервера в конце раунда. Перезайдите, если вас кикнет</color>" }
         };
     }
 }
