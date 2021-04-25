@@ -32,13 +32,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\Downloads\refs\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\refs\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\..\Downloads\refs\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
-    <Reference Include="CommandSystem.Core">
-      <HintPath>..\..\..\Downloads\refs\CommandSystem.Core.dll</HintPath>
+    <Reference Include="CommandSystem.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\refs\CommandSystem.Core.dll</HintPath>
     </Reference>
     <Reference Include="Exiled.API, Version=2.8.0.0, Culture=neutral, processorArchitecture=AMD64">
       <HintPath>packages\EXILED.2.8.0\lib\net472\Exiled.API.dll</HintPath>
