@@ -8,18 +8,15 @@ namespace BroadcastPreset
 {
     [CommandHandler(typeof(RemoteAdminCommandHandler))]
     [CommandHandler(typeof(GameConsoleCommandHandler))]
-    class BroadcastCommand : ICommand
+    public class BroadcastCommand : ICommand
     {
-        readonly BroadcastCommand CommandInst = new BroadcastCommand();
-        readonly BroadcastPreset PluginInstance = new BroadcastPreset();
+        public readonly BroadcastPreset PluginInstance;
         public BroadcastCommand ()
         {
             LoadGeneratedCommands();
         }
         public string[] Aliases { get; } = new[] { "presetbc", "prebc" };
-
         public string Description { get; } = "Send a preset broadcast";
-
         public string Command { get; } = "PresetBroadcast";
         public void LoadGeneratedCommands() { }
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
@@ -34,8 +31,13 @@ namespace BroadcastPreset
                 response = "Использование: prebc <название>";
                 return false;
             }
-            PluginInstance.Config.Presets.TryGetValue(arguments.At(0).ToLower(), out string message);
-            message.Replace("{sender}", ((CommandSender)sender).Nickname ?? "Host");
+            if(!PluginInstance.Config.Presets.TryGetValue(arguments.At(0).ToLower(), out string message))
+            {
+                response = "Пресет не найден";
+                return false;
+            }
+            message = message.Replace("{sender}", ((CommandSender)sender)?.Nickname ?? "Host");
+            Map.Broadcast(10, message);
             response = "Сообщение успешно отправлено";
             return true;
         }

@@ -31,17 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\refs\Assembly-CSharp.dll</HintPath>
-    </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\refs\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>..\..\refs\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-Publicized">
       <HintPath>..\..\refs\Assembly-CSharp-Publicized.dll</HintPath>
     </Reference>
     <Reference Include="CommandSystem.Core">
-      <HintPath>..\refs\CommandSystem.Core.dll</HintPath>
+      <HintPath>..\..\refs\CommandSystem.Core.dll</HintPath>
     </Reference>
     <Reference Include="Exiled.API, Version=2.8.0.0, Culture=neutral, processorArchitecture=AMD64">
       <HintPath>packages\EXILED.2.8.0\lib\net472\Exiled.API.dll</HintPath>
@@ -79,7 +76,6 @@
   <ItemGroup>
     <Compile Include="Command.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Handlers.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
