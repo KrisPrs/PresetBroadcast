@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using MEC;
 using CommandSystem;
 using Exiled.API.Features;
 
@@ -22,7 +21,7 @@ namespace BroadcastPreset
             }
             if (arguments.Count != 1)
             {
-                response = "Использование: prebc <название>";
+                response = "Использование: prebc <название> <опциональное_дополнение>";
                 return false;
             }
             if(!BroadcastPreset.config.Presets.TryGetValue(arguments.At(0).ToLower(), out string message))
@@ -32,6 +31,11 @@ namespace BroadcastPreset
             }
             message = message.Replace("{sender}", ((CommandSender)sender)?.Nickname ?? "Host");
             Map.Broadcast(10, message);
+            string message_add = arguments.At(1);
+            if (!String.IsNullOrEmpty(message_add))
+            {
+                Timing.CallDelayed(10f, () => Map.Broadcast(10, message));
+            }            
             response = "Сообщение успешно отправлено";
             return true;
         }
