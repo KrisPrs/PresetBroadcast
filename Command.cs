@@ -19,7 +19,7 @@ namespace BroadcastPreset
                 response = "Недостаточно прав!";
                 return false;
             }
-            if (arguments.Count != 1)
+            if (arguments.Count != 1 || arguments.Count != 2)
             {
                 response = "Использование: prebc <название> <опциональное_дополнение>";
                 return false;
@@ -31,11 +31,18 @@ namespace BroadcastPreset
             }
             message = message.Replace("{sender}", ((CommandSender)sender)?.Nickname ?? "Host");
             Map.Broadcast(10, message);
-            string message_add = arguments.At(1);
-            if (!String.IsNullOrEmpty(message_add))
+            try
             {
-                Timing.CallDelayed(10f, () => Map.Broadcast(10, message));
-            }            
+                string message_add = string.Join(" ", arguments.Array, 2, arguments.Array.Length - 2);
+                if (!String.IsNullOrEmpty(message_add))
+                {
+                    Timing.CallDelayed(10f, () => Map.Broadcast(10, message));
+                }
+            }
+            catch(Exception x)
+            {
+                Log.Error($"Unable to make addition for annonce: {x}");
+            } 
             response = "Сообщение успешно отправлено";
             return true;
         }
