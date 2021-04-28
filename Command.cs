@@ -19,7 +19,7 @@ namespace BroadcastPreset
                 response = "Недостаточно прав!";
                 return false;
             }
-            if (arguments.Count != 1 || arguments.Count != 2)
+            if (arguments.Count == 0 || arguments.Count > 2)
             {
                 response = "Использование: prebc <название> <опциональное_дополнение>";
                 return false;
