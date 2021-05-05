@@ -11,11 +11,9 @@ namespace BroadcastPreset
 {
     public class Config : IConfig
     {
-        public bool IsEnabled { get; set; } = false;
+        public bool IsEnabled { get; set; } = true;
         [Description("Presets list. Format: preset key: text. Acceptable fields: {sender}. IMPORTANT: only lower register in preset key")]
-        public Dictionary<string, string> Presets { get; set; } = new Dictionary<string, string>()
-        {
-            {"restart", "<color=red><b>Внимание</b></color>\n<color=yellow>{sender} запросил перезапуск сервера в конце раунда. Перезайдите, если вас кикнет</color>" }
-        };
+        public string RestartText { get; set; } = "<color=red><b>Внимание:</b></color>\n<color=yellow>{sender} запросил перезапуск сервера в конце раунда. Перезайдите, если вас кикнет</color>";
+        public string RoundEndText { get; set; } = "<color=red><b>Внимание:</b></color>\n<color=yellow>Перезапуск сервера...</color>";
     }
 }

@@ -12,9 +12,9 @@ namespace BroadcastPreset
     public class BroadcastPreset : Plugin<Config>
     {
         public override string Author { get; } = "Chris \"Irvis\" Praison";
-        public override string Name { get; } = "BroadcastPreset";
-        public override string Prefix { get; } = "BCPreset";
-        public override Version Version { get; } = new Version(1, 1, 0);
+        public override string Name { get; } = "RestartBroadcastSystem";
+        public override string Prefix { get; } = "RestartAnnoncer";
+        public override Version Version { get; } = new Version(2, 0, 0);
         public static Config config;
         public override void OnEnabled()
         {
@@ -28,8 +28,6 @@ namespace BroadcastPreset
         }
         public void OnReload()
         {
-            config = null;
-            config = Config;
             base.OnReloaded();
         }
     }
