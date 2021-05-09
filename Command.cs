@@ -3,6 +3,7 @@ using MEC;
 using CommandSystem;
 using Exiled.API.Features;
 using Exiled.Events.EventArgs;
+using System.Collections.Generic;
 
 namespace BroadcastPreset
 {
@@ -23,14 +24,9 @@ namespace BroadcastPreset
             string message = BroadcastPreset.config.RestartText;
             message = message.Replace("{sender}", ((CommandSender)sender)?.Nickname ?? "Host");
             Map.Broadcast(10, message);
-            Exiled.Events.Handlers.Server.EndingRound += EndRoundAnnonce;
+            BroadcastPreset.IsRestarting = true;
             response = "Сообщение успешно отправлено";
             return true;
-        }
-        void EndRoundAnnonce(EndingRoundEventArgs ev)
-        {
-            Map.Broadcast(10, BroadcastPreset.config.RoundEndText);
-            Exiled.Events.Handlers.Server.EndingRound -= EndRoundAnnonce;
         }
     }
 }
